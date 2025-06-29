@@ -9,21 +9,16 @@ use Illuminate\View\Component;
 class SiteFooter extends Component
 {
     public string $email;
-
+    public string $whatsappNumber;
     public string $currentYear;
 
-    /**
-     * Create a new component instance.
-     */
     public function __construct()
     {
         $this->email = 'davioliveira353.do@gmail.com';
+        $this->whatsappNumber = '5518998268057'; // Use o formato internacional sem símbolos
         $this->currentYear = date('Y');
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.site-footer');

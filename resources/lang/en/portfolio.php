@@ -7,6 +7,8 @@ return [
     'skills_title' => 'Main Skills',
     'contact_title' => 'Contact',
     'footer_rights' => 'All Rights Reserved.',
+    'about_title' => 'About Me',
+    'about_description' => 'I am a developer passionate about creating elegant and efficient solutions. With a solid foundation in PHP and Laravel, I constantly seek to learn new technologies to build robust, high-quality web applications. Outside of code, I enjoy exploring the world of digital games, which gives me a creative perspective on problem-solving.',
 
     'experience' => [
         'role_1' => 'Fullstack Developer',

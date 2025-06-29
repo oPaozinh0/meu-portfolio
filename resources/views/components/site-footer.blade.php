@@ -5,6 +5,9 @@
             <a href="mailto:{{ $email }}" class="text-zinc-500 hover:text-amber-700 transition-colors duration-300" title="Email">
                 <x-icons.email class="text-zinc-500 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300"/>
             </a>
+            <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-green-500 transition-colors duration-300" title="WhatsApp">
+                <x-icons.whatsapp/>
+            </a>
         </div>
         <p class="text-sm text-zinc-500">
             &copy; {{ $currentYear }} Davi Oliveira. <span data-translate="footer_rights">Todos os direitos reservados.</span>

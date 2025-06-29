@@ -18,3 +18,8 @@
         </div>
     </div>
 </section>
+<div id="hero-scroll-indicator" class="absolute bottom-8 left-1/2 -translate-x-1/2">
+    <a href="#about" class="text-amber-500">
+        <x-icons.arrow-down class="w-8 h-8"/>
+    </a>
+</div>

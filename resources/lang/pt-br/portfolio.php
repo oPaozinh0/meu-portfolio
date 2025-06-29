@@ -7,6 +7,8 @@ return [
     'skills_title' => 'Principais Habilidades',
     'contact_title' => 'Contato',
     'footer_rights' => 'Todos os direitos reservados.',
+    'about_title' => 'Sobre Mim',
+    'about_description' => 'Sou um desenvolvedor apaixonado por criar soluções elegantes e eficientes. Com uma base sólida em PHP e Laravel, busco constantemente aprender novas tecnologias para construir aplicações web robustas e de alta qualidade. Fora do código, gosto de explorar o mundo dos jogos digitais, o que me dá uma perspectiva criativa para a resolução de problemas.',
 
     'experience' => [
         'role_1' => 'Desenvolvedor Fullstack',

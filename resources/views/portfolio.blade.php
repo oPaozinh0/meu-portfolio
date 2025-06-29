@@ -48,7 +48,6 @@
             'pt-br': @json(Lang::get('portfolio', [], 'pt-br'))
         };
     </script>
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 font-sans transition-colors duration-300">
@@ -56,6 +55,7 @@
 
     <main>
         <x-hero-section />
+        <x-about-section />
         <x-experience-section />
         <x-education-section />
         <x-skills-section />

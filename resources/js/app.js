@@ -76,6 +76,34 @@ themeToggleBtn.addEventListener('click', () => {
     applyTheme(isDark);
 });
 
+// --- LÓGICA DA SETA INDICADORA (NOVA VERSÃO COM ANIMAÇÃO JS) ---
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollIndicatorLink = document.querySelector('#hero-scroll-indicator a');
+
+    if (scrollIndicatorLink) {
+        // Função para scroll suave
+        scrollIndicatorLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Função para a animação de bounce
+        const startTime = Date.now();
+        function bounce() {
+            const elapsedTime = Date.now() - startTime;
+            // Cria um movimento senoidal suave que se assemelha a um pulo
+            const yOffset = Math.sin(elapsedTime / 200) * 5; // Pula 5px para cima e para baixo
+            scrollIndicatorLink.style.transform = `translateY(${yOffset}px)`;
+            requestAnimationFrame(bounce); // Continua a animação no próximo frame
+        }
+
+        // Inicia a animação
+        requestAnimationFrame(bounce);
+    }
+});
 
 // --- INICIALIZAÇÃO DA PÁGINA ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -83,3 +111,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('language') || 'pt-br';
     applyTranslations(savedLang);
 });
+
