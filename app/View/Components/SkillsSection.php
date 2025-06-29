@@ -10,8 +10,6 @@ class SkillsSection extends Component
 {
     /**
      * The array of skills.
-     *
-     * @var array
      */
     public array $skills;
 
@@ -26,10 +24,10 @@ class SkillsSection extends Component
             'MySQL',
             'MariaDB',
             'MongoDB',
-            'TypeScript', 
+            'TypeScript',
             'ETLs',
             'Data Quality',
-            'Data Migration'
+            'Data Migration',
         ];
     }
 

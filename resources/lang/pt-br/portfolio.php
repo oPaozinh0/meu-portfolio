@@ -16,7 +16,7 @@ return [
         'description_1_2' => 'Projeto e mantenho funcionalidades de backend robustas usando PHP e Laravel, com foco em desempenho e segurança de dados.',
         'description_1_3' => 'Construo interfaces de usuário intuitivas e responsivas com Vue.js, garantindo uma experiência de alta qualidade para os profissionais de saúde.',
         'description_1_4' => 'Colaboro com as equipes de produto, design e QA para transformar os requisitos de negócios em soluções técnicas eficientes.',
-        
+
         'role_2' => 'Desenvolvedor de Qualidade de Dados',
         'period_2' => 'Julho 2024 - Maio 2025 (11 meses)',
         'location_2' => 'Chapecó, Santa Catarina, Brasil',
@@ -48,7 +48,7 @@ return [
         'description_6_1' => 'Facilitei atividades de software educacional em laboratórios de informática para jovens estudantes.',
         'description_6_2' => 'Desempenhei um papel fundamental na introdução de crianças à tecnologia e à alfabetização digital.',
     ],
-    
+
     'education' => [
         'degree_1' => 'Diploma Superior em Tecnologia, Desenvolvimento de Jogos Digitais',
         'period_1' => 'Fevereiro 2018 - Dezembro 2020',

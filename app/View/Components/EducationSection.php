@@ -10,8 +10,6 @@ class EducationSection extends Component
 {
     /**
      * The education history array.
-     *
-     * @var array
      */
     public array $education;
 

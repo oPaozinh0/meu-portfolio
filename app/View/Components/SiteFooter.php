@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class SiteFooter extends Component
 {
     public string $email;
+
     public string $currentYear;
 
     /**

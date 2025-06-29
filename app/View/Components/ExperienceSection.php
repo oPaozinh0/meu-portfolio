@@ -10,8 +10,6 @@ class ExperienceSection extends Component
 {
     /**
      * The professional experiences array.
-     *
-     * @var array
      */
     public array $experiences;
 

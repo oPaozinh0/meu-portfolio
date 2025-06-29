@@ -78,6 +78,6 @@ return [
             'degree' => 'degree_2',
             'period' => 'period_2',
             'location' => 'São Paulo, Brazil',
-        ]
+        ],
     ],
 ];

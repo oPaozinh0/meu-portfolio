@@ -9,8 +9,11 @@ use Illuminate\View\Component;
 class HeroSection extends Component
 {
     public string $name;
+
     public string $title;
+
     public string $linkedinUrl;
+
     public string $githubUrl;
 
     /**
@@ -20,8 +23,8 @@ class HeroSection extends Component
     {
         $this->name = 'Davi Oliveira';
         $this->title = __('portfolio.hero_title');
-        $this->linkedinUrl = 'https://www.linkedin.com/in/davio-vieira'; 
-        $this->githubUrl = 'https://github.com/oPaozinh0'; 
+        $this->linkedinUrl = 'https://www.linkedin.com/in/davio-vieira';
+        $this->githubUrl = 'https://github.com/oPaozinh0';
     }
 
     /**
