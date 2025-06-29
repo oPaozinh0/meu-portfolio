@@ -6,11 +6,11 @@
 
     @if(app()->getLocale() == 'pt-br')
         <title>Davi Oliveira - Desenvolvedor Fullstack Laravel</title>
-        <meta name="description" content="Portfólio de Davi Oliveira, Desenvolvedor Fullstack Sênior especializado em Laravel, PHP e Vue.js. Conheça meus projetos, experiência e habilidades.">
+        <meta name="description" content="Davi Oliveira, Desenvolvedor Fullstack Sênior especializado em Laravel. Conheça meus projetos, experiência e habilidades.">
         <meta name="keywords" content="Desenvolvedor Fullstack, Laravel, PHP, Desenvolvedor Web, Portfólio, Davi Oliveira">
     @else
         <title>Davi Oliveira - Fullstack Laravel Developer</title>
-        <meta name="description" content="Portfolio of Davi Oliveira, a Senior Fullstack Developer specializing in Laravel, PHP, and Vue.js. Discover my projects, experience, and skills.">
+        <meta name="description" content="Davi Oliveira, a Senior Fullstack Developer specializing in Laravel. Discover my projects, experience, and skills.">
         <meta name="keywords" content="Fullstack Developer, Laravel, PHP, Web Developer, Portfolio, Davi Oliveira">
     @endif
     
