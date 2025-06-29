@@ -20,20 +20,7 @@ class EducationSection extends Component
      */
     public function __construct()
     {
-        $this->education = [
-            [
-                'institution' => 'Centro Universitário Católico Salesiano Auxilium - UniSALESIANO',
-                'degree' => 'Higher Diploma in Technology, Digital Game Development',
-                'period' => 'February 2018 - December 2020',
-                'location' => 'Araçatuba',
-            ],
-            [
-                'institution' => 'ETEC - Escola Técnica Estadual de São Paulo',
-                'degree' => 'Technical High School, Computer Technician',
-                'period' => 'February 2015 - December 2017',
-                'location' => 'São Paulo, Brazil',
-            ]
-        ];
+        $this->education = config('portfolio.education');
     }
 
     /**

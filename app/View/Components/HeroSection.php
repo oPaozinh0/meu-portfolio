@@ -19,7 +19,7 @@ class HeroSection extends Component
     public function __construct()
     {
         $this->name = 'Davi Oliveira';
-        $this->title = 'Senior Fullstack Developer specializing in crafting robust and scalable web applications with Laravel.';
+        $this->title = __('portfolio.hero_title');
         $this->linkedinUrl = 'https://www.linkedin.com/in/davio-vieira'; 
         $this->githubUrl = 'https://github.com/oPaozinh0'; 
     }
