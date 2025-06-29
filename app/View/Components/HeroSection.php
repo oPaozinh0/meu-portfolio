@@ -10,6 +10,8 @@ class HeroSection extends Component
 {
     public string $name;
     public string $title;
+    public string $linkedinUrl;
+    public string $githubUrl;
 
     /**
      * Create a new component instance.
@@ -17,7 +19,9 @@ class HeroSection extends Component
     public function __construct()
     {
         $this->name = 'Davi Oliveira';
-        $this->title = 'Senior Fullstack Developer specializing in crafting robust and scalable web applications with Laravel & Vue.js.';
+        $this->title = 'Senior Fullstack Developer specializing in crafting robust and scalable web applications with Laravel.';
+        $this->linkedinUrl = 'https://www.linkedin.com/in/davio-vieira'; 
+        $this->githubUrl = 'https://github.com/oPaozinh0'; 
     }
 
     /**

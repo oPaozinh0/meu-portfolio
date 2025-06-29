@@ -6,18 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SiteFooter extends Component
+class ThemeSwitcher extends Component
 {
-    public string $email;
-    public string $currentYear;
-
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        $this->email = 'davioliveira353.do@gmail.com';
-        $this->currentYear = date('Y');
+        //
     }
 
     /**
@@ -25,6 +21,6 @@ class SiteFooter extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site-footer');
+        return view('components.theme-switcher');
     }
 }

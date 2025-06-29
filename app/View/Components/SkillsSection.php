@@ -21,15 +21,15 @@ class SkillsSection extends Component
     public function __construct()
     {
         $this->skills = [
-            'PHP', // [cite: 11]
-            'Laravel', // [cite: 7, 11]
-            'MySQL', // [cite: 8, 11]
-            'MariaDB', // [cite: 11]
-            'MongoDB', // [cite: 11]
-            'TypeScript', // [cite: 9]
-            'ETLs', // [cite: 11]
-            'Data Quality', // [cite: 11]
-            'Data Migration' // [cite: 26]
+            'PHP',
+            'Laravel',
+            'MySQL',
+            'MariaDB',
+            'MongoDB',
+            'TypeScript', 
+            'ETLs',
+            'Data Quality',
+            'Data Migration'
         ];
     }
 
