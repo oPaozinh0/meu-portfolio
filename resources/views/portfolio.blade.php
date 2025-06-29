@@ -24,14 +24,14 @@
     {{-- Open Graph & Twitter Cards --}}
     @if(app()->getLocale() == 'pt-br')
         <meta property="og:title" content="Davi Oliveira - Desenvolvedor Fullstack Laravel">
-        <meta property="og:description" content="Portfólio de Davi Oliveira, Desenvolvedor Fullstack Sênior.">
+        <meta property="og:description" content="Davi Oliveira, Desenvolvedor Fullstack Sênior.">
         <meta property="twitter:title" content="Davi Oliveira - Desenvolvedor Fullstack Laravel">
-        <meta property="twitter:description" content="Portfólio de Davi Oliveira, Desenvolvedor Fullstack Sênior.">
+        <meta property="twitter:description" content="Davi Oliveira, Desenvolvedor Fullstack Sênior.">
     @else
         <meta property="og:title" content="Davi Oliveira - Fullstack Laravel Developer">
-        <meta property="og:description" content="Portfolio of Davi Oliveira, a Senior Fullstack Developer.">
+        <meta property="og:description" content="Davi Oliveira, a Senior Fullstack Developer.">
         <meta property="twitter:title" content="Davi Oliveira - Fullstack Laravel Developer">
-        <meta property="twitter:description" content="Portfolio of Davi Oliveira, a Senior Fullstack Developer.">
+        <meta property="twitter:description" content="Davi Oliveira, a Senior Fullstack Developer.">
     @endif
     <meta property="og:type" content="website">
     <meta property="twitter:card" content="summary_large_image">
