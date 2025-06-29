@@ -19,13 +19,21 @@ COPY resources/ resources/
 RUN npm install && npm run build
 
 # Estágio 3: Construção Final da Aplicação
-FROM php:8.3-fpm-alpine
+FROM php:8.3-fpm
 
 WORKDIR /var/www/html
 
-# Instala extensões PHP necessárias para o Laravel
-RUN apk add --no-cache oniguruma-dev libxml2-dev libzip-dev && \
-    docker-php-ext-install bcmath ctype fileinfo mbstring pdo pdo_mysql tokenizer xml zip
+# Instala dependências do sistema e extensões PHP usando apt-get
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    zip \
+    unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install pdo pdo_mysql bcmath zip
 
 # Copia os arquivos da aplicação e as dependências instaladas
 COPY . .
