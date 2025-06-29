@@ -3,11 +3,15 @@
     "framework": null,
     "builds": [
         {
-            "src": "public/index.php",
-            "use": "@vercel/php"
+            "src": "/public/index.php",
+            "use": "vercel-php@0.7.3"
         }
     ],
     "routes": [
+        {
+            "src": "/(css|js|images|fonts|storage|favicon.ico)(.*)",
+            "dest": "/public/$1$2"
+        },
         {
             "src": "/(.*)",
             "dest": "/public/index.php"
