@@ -2,7 +2,6 @@
 FROM composer:2 AS vendor
 
 WORKDIR /app
-COPY database/ database/
 COPY composer.json composer.json
 COPY composer.lock composer.lock
 RUN composer install --no-interaction --no-dev --prefer-dist
