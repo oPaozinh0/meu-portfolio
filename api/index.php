@@ -1,11 +1,24 @@
 <?php
 
-// public/index.php
-define('LARAVEL_START', microtime(true));
+// Define o diretório raiz da sua aplicação Laravel.
+$root = dirname(__DIR__);
 
-// Register the Composer autoloader.
-require __DIR__.'/../vendor/autoload.php';
+// Carrega o autoloader do Composer.
+require_once $root . '/vendor/autoload.php';
 
-// Bootstrap Laravel and handle the request.
-echo (require_once __DIR__.'/../bootstrap/app.php')
-    ->handleRequest(Illuminate\Http\Request::capture());
+// Inicia a aplicação Laravel.
+$app = require_once $root . '/bootstrap/app.php';
+
+// Cria o kernel HTTP.
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+// Captura a requisição e a envia para o kernel.
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
+// Envia a resposta de volta para a Vercel.
+$response->send();
+
+// Termina o ciclo da requisição/resposta.
+$kernel->terminate($request, $response);
