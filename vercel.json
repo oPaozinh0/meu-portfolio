@@ -16,13 +16,5 @@
             "src": "/(.*)",
             "dest": "/public/index.php"
         }
-    ],
-    "build": {
-        "env": {
-            "COMPOSER_INSTALL_FLAGS": "--no-dev --optimize-autoloader"
-        }
-    },
-    "scripts": {
-        "build": "composer vercel-build"
-    }
+    ]
 }
