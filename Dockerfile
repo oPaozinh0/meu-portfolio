@@ -4,7 +4,7 @@ FROM composer:2 AS vendor
 WORKDIR /app
 COPY composer.json composer.json
 COPY composer.lock composer.lock
-RUN composer install --no-interaction --no-dev --prefer-dist
+RUN composer install --no-interaction --no-dev --prefer-dist --no-scripts
 
 # Estágio 2: Dependências do Node.js com NPM
 FROM node:18 AS frontend
