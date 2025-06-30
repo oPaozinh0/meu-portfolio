@@ -9,7 +9,9 @@ use Illuminate\View\Component;
 class SiteFooter extends Component
 {
     public string $email;
+
     public string $whatsappNumber;
+
     public string $currentYear;
 
     public function __construct()

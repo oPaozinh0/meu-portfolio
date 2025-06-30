@@ -5,6 +5,14 @@ return [
     'experience_title' => 'Experiência',
     'education_title' => 'Formação',
     'skills_title' => 'Principais Habilidades',
+
+    'skills_category_backend' => 'Backend',
+    'skills_category_frontend' => 'Frontend',
+    'skills_category_databases' => 'Bases de Dados',
+    'skills_category_devops_tools' => 'DevOps & Ferramentas',
+    'skills_category_concepts' => 'Conceitos',
+
+    'footer_cta' => 'Ficou interessado no meu trabalho ou tem um projeto em mente? Vamos conversar!',
     'contact_title' => 'Contato',
     'footer_rights' => 'Todos os direitos reservados.',
     'about_title' => 'Sobre Mim',

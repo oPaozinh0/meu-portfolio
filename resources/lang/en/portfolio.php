@@ -5,6 +5,14 @@ return [
     'experience_title' => 'Experience',
     'education_title' => 'Education',
     'skills_title' => 'Main Skills',
+
+    'skills_category_backend' => 'Backend',
+    'skills_category_frontend' => 'Frontend',
+    'skills_category_databases' => 'Databases',
+    'skills_category_devops_tools' => 'DevOps & Tools',
+    'skills_category_concepts' => 'Concepts',
+
+    'footer_cta' => 'Interested in my work or have a project in mind? Let\'s get in touch!',
     'contact_title' => 'Contact',
     'footer_rights' => 'All Rights Reserved.',
     'about_title' => 'About Me',

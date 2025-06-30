@@ -11,7 +11,6 @@
 
                     <div class="p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100" data-translate="experience.{{ $exp['role'] }}">
-                            {{-- Texto padrão --}}
                         </h3>
                         <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-1">
                             <span data-translate="experience.{{ $exp['period'] }}"></span> • <span data-translate="experience.{{ $exp['location'] }}"></span>
