@@ -6,8 +6,8 @@ return [
     'education_title' => 'Education',
     'skills_title' => 'Main Skills',
 
-    'skills_category_backend' => 'Backend',
-    'skills_category_frontend' => 'Frontend',
+    'skills_category_backend' => 'Languages',
+    'skills_category_frontend' => 'Frameworks',
     'skills_category_databases' => 'Databases',
     'skills_category_devops_tools' => 'DevOps & Tools',
     'skills_category_concepts' => 'Concepts',

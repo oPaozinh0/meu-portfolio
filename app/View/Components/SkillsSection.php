@@ -16,13 +16,17 @@ class SkillsSection extends Component
     public function __construct()
     {
         $this->skillCategories = [
-            'Backend' => [
+            'Languages' => [
                 ['name' => 'PHP', 'icon' => 'devicon-php-plain'],
-                ['name' => 'Laravel', 'icon' => 'devicon-laravel-plain'],
-            ],
-            'Frontend' => [
-                ['name' => 'Vue.js', 'icon' => 'devicon-vuejs-plain'],
                 ['name' => 'TypeScript', 'icon' => 'devicon-typescript-plain'],
+                ['name' => 'JavaScript', 'icon' => 'devicon-javascript-plain'],
+                ['name' => 'Python', 'icon' => 'devicon-python-plain'],
+            ],
+            'Frameworks' => [
+                ['name' => 'Laravel', 'icon' => 'devicon-laravel-plain'],
+                ['name' => 'Vue.js', 'icon' => 'devicon-vuejs-plain'],
+                ['name' => 'Tailwind CSS', 'icon' => 'devicon-tailwindcss-plain'],
+                ['name' => 'Bootstrap', 'icon' => 'devicon-bootstrap-plain'],
             ],
             'Databases' => [
                 ['name' => 'MySQL', 'icon' => 'devicon-mysql-plain-wordmark'],
@@ -33,11 +37,15 @@ class SkillsSection extends Component
             'DevOps & Tools' => [
                 ['name' => 'Git', 'icon' => 'devicon-git-plain'],
                 ['name' => 'Docker', 'icon' => 'devicon-docker-plain'],
+                ['name' => 'Kubernetes', 'icon' => 'devicon-kubernetes-plain'],
+                ['name' => 'Datadog', 'icon' => 'icons.skills.datadog'],
+                
             ],
             'Concepts' => [
-                ['name' => 'ETLs', 'icon' => 'icons.skills.etl'],
-                ['name' => 'Data Quality', 'icon' => 'icons.skills.data-quality'],
-                ['name' => 'Data Migration', 'icon' => 'icons.skills.data-migration'],
+                ['name' => 'ETLs', 'icon' => 'fa-solid fa-shuffle'], 
+                ['name' => 'Data Quality', 'icon' => 'fa-solid fa-check-double'], 
+                ['name' => 'Data Migration', 'icon' => 'fa-solid fa-database'], 
+                ['name' => 'Agile Methodology', 'icon' => 'fa-solid fa-arrows-split-up-and-left']
             ],
         ];
     }

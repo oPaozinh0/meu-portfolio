@@ -6,9 +6,9 @@ return [
     'education_title' => 'Formação',
     'skills_title' => 'Principais Habilidades',
 
-    'skills_category_backend' => 'Backend',
-    'skills_category_frontend' => 'Frontend',
-    'skills_category_databases' => 'Bases de Dados',
+    'skills_category_backend' => 'Linguagens',
+    'skills_category_frontend' => 'Frameworks',
+    'skills_category_databases' => 'Bancos de Dados',
     'skills_category_devops_tools' => 'DevOps & Ferramentas',
     'skills_category_concepts' => 'Conceitos',
 

@@ -3,9 +3,7 @@
         <h2 class="text-4xl font-bold text-center mb-16 text-zinc-800 dark:text-zinc-100" data-translate="skills_title">Principais Habilidades</h2>
         
         <div class="flex flex-wrap justify-center items-stretch gap-8">
-            
             @foreach ($skillCategories as $category => $skills)
-                {{-- CORRIGIDA a cor de fundo para o dark mode --}}
                 <div class="w-full md:w-[45%] lg:basis-[31%] bg-white dark:bg-zinc-700 p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold text-center mb-6 text-amber-600 dark:text-amber-500" data-translate="skills_category_{{ strtolower(str_replace(' & ', '_', $category)) }}">
                         {{ $category }}
@@ -13,7 +11,6 @@
                     
                     <div class="flex flex-wrap justify-center items-center gap-3">
                         @foreach ($skills as $skill)
-                            {{-- CORRIGIDA a cor de fundo para o dark mode --}}
                             <div
                                 data-aos="fade-up"
                                 data-aos-delay="{{ $loop->parent->index * 100 + $loop->index * 50 }}"
@@ -21,6 +18,10 @@
                             >
                                 @if (str_starts_with($skill['icon'], 'devicon-'))
                                     <i class="{{ $skill['icon'] }} text-2xl text-current transition-colors duration-300"></i>
+                                
+                                @elseif (str_starts_with($skill['icon'], 'fa-'))
+                                    <i class="{{ $skill['icon'] }} text-xl text-current transition-colors duration-300"></i>
+                                
                                 @else
                                     <x-dynamic-component :component="$skill['icon']" class="w-5 h-5"/>
                                 @endif

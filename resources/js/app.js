@@ -105,10 +105,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os links que começam com '#'
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // 1. Impede a ação de "salto" padrão do navegador
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // 2. Rola a página suavemente até ao elemento de destino
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
 // --- INICIALIZAÇÃO DA PÁGINA ---
 document.addEventListener('DOMContentLoaded', () => {
     // Carrega o idioma salvo ou define 'pt-br' como padrão
-    const savedLang = localStorage.getItem('language') || 'pt-br';
+    const savedLang = localStorage.getItem('language') || 'en';
     applyTranslations(savedLang);
 });
 
