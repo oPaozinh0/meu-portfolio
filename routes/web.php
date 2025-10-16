@@ -10,4 +10,4 @@ Route::get('/', function () {
 Route::get('/s', [ShortLinkController::class, 'create'])->name('shortlink.create');
 Route::post('/s', [ShortLinkController::class, 'store'])->name('shortlink.store');
 Route::get('/{short_code}', [ShortLinkController::class, 'show'])->name('shortlink.show');
-Route::get('/s/{short_code}/stats', [App\Http\Controllers\ShortLinkController::class, 'stats'])->name('shortlink.stats');
+Route::get('/s/{short_code}/stats', [ShortLinkController::class, 'stats'])->name('shortlink.stats');
