@@ -32,7 +32,7 @@
                             <tr class="border-b dark:border-zinc-700">
                                 <td class="py-2 px-4">{{ $visit->created_at->format('d/m/Y H:i:s') }}</td>
                                 <td class="py-2 px-4">{{ $visit->ip_address }}</td>
-                                <td class="py-2 px-4 text-sm text-gray-500 truncate" title="{{ $visit->user_agent }}">{{ Str::limit($visit->user_agent, 70) }}</td>
+                                <td class="py-2 px-4 text-sm text-gray-500 truncate" title="{{ e($visit->user_agent) }}">{{ Str::limit($visit->user_agent, 70) }}</td>
                             </tr>
                         @empty
                             <tr>
