@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estatísticas do Link</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-slate-50 dark:bg-zinc-800">
+@extends('layouts.app')
+
+@section('title', 'Estatísticas do Link - Davi Oliveira')
+
+@section('content')
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-4">
     <div class="container mx-auto mt-20 max-w-4xl px-4">
         <h1 class="text-4xl font-bold text-center mb-8 text-zinc-800 dark:text-zinc-100">Estatísticas do Link</h1>
 
@@ -50,5 +47,5 @@
              <a href="{{ route('shortlink.create') }}" class="text-amber-600 dark:text-amber-400 hover:underline">&larr; Voltar para o encurtador</a>
         </div>
     </div>
-</body>
-</html>
+</section>
+@endsection

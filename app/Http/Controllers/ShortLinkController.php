@@ -18,13 +18,12 @@ class ShortLinkController extends Controller
     {
         $request->validate([
             'original_url' => 'required|url',
-            'expires_at' => 'nullable|date|after:now',
         ]);
 
         $shortLink = ShortLink::create([
             'original_url' => $request->original_url,
             'short_code' => Str::random(6),
-            'expires_at' => $request->expires_at,
+            'expires_at' => now()->addHours(3),
         ]);
 
         return redirect()->route('shortlink.create')->with('success', 'Link encurtado com sucesso!')->with('short_code', $shortLink->short_code);
@@ -32,10 +31,13 @@ class ShortLinkController extends Controller
 
     public function show($short_code, Request $request)
     {
-        $shortLink = ShortLink::where('short_code', $short_code)->firstOrFail();
+        $shortLink = ShortLink::where('short_code', $short_code)->first();
+        if (!$shortLink) {
+            abort(404);
+        }
 
         if ($shortLink->expires_at && $shortLink->expires_at->isPast()) {
-            abort(404);
+            return response()->view('errors.expired', [], 404);
         }
 
         $shortLink->visits()->create([
