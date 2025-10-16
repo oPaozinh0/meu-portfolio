@@ -20,9 +20,25 @@ class ShortLinkController extends Controller
             'original_url' => 'required|url',
         ]);
 
+        // Generate a unique short code with collision detection
+        $maxAttempts = 10;
+        $shortCodeLength = 8; // Increase length to further reduce collision probability
+        $shortCode = null;
+        for ($attempt = 0; $attempt < $maxAttempts; $attempt++) {
+            $candidate = Str::random($shortCodeLength);
+            if (!ShortLink::where('short_code', $candidate)->exists()) {
+                $shortCode = $candidate;
+                break;
+            }
+        }
+        if (!$shortCode) {
+            // Could not generate a unique code after max attempts
+            return redirect()->route('shortlink.create')->with('error', 'Não foi possível gerar um código único. Tente novamente.');
+        }
+
         $shortLink = ShortLink::create([
             'original_url' => $request->original_url,
-            'short_code' => Str::random(6),
+            'short_code' => $shortCode,
             'expires_at' => now()->addHours(3),
         ]);
 
