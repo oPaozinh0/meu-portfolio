@@ -33,12 +33,14 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql bcmath zip
+    && docker-php-ext-install pdo pdo_sqlite bcmath zip
 
 # Copia os arquivos da aplicação e as dependências instaladas
 COPY . .
 COPY --from=vendor /app/vendor/ ./vendor/
 COPY --from=frontend /app/public/build ./public/build
+
+RUN php artisan config:clear && touch storage/database.sqlite && php artisan migrate --force
 
 # Ajusta permissões
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && \
