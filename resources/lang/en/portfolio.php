@@ -6,7 +6,7 @@ return [
     'education_title' => 'Education',
     'skills_title' => 'Main Skills',
 
-    'skills_category_backend' => 'Languages',
+    'skills_category_languages' => 'Languages',
     'skills_category_frontend' => 'Frameworks',
     'skills_category_databases' => 'Databases',
     'skills_category_devops_tools' => 'DevOps & Tools',
@@ -20,7 +20,7 @@ return [
 
     'experience' => [
         'role_1' => 'Fullstack Developer',
-        'period_1' => 'May 2025 - Present',
+        'period_1' => 'May 2025 - October 2025 (6 months)',
         'location_1' => 'Chapecó, Santa Catarina, Brazil',
         'description_1_1' => 'I am responsible for the end-to-end development of new features.',
         'description_1_2' => 'Design and maintain robust backend functionalities using PHP and Laravel, focusing on performance and data security.',
@@ -65,4 +65,33 @@ return [
         'degree_2' => 'Technical High School, Computer Technician',
         'period_2' => 'February 2015 - December 2017',
     ],
+
+    'shortlink_title' => 'Link Shortener',
+    'shortlink_original_url_label' => 'Original URL',
+    'shortlink_expiry_notice' => 'The generated link will expire in 3 hours.',
+    'shortlink_button' => 'Shorten',
+    'shortlink_success_message' => 'Link shortened successfully!',
+    'shortlink_your_link' => 'Your link:',
+    'shortlink_view_stats' => 'View statistics',
+
+    'shortlink_stats_title' => 'Link Statistics',
+    'shortlink_stats_original_url' => 'Original URL:',
+    'shortlink_stats_short_link' => 'Short Link:',
+    'shortlink_stats_total_clicks' => 'Total Clicks:',
+    'shortlink_stats_expires_at' => 'Expires at:',
+    'shortlink_stats_access_log_title' => 'Access Logs',
+    'shortlink_stats_table_datetime' => 'Date / Time',
+    'shortlink_stats_table_ip' => 'IP Address',
+    'shortlink_stats_table_useragent' => 'User Agent',
+    'shortlink_stats_no_clicks' => 'No clicks recorded yet.',
+    'shortlink_stats_back_link' => '← Back to shortener',
+
+    'error_404_title' => 'Page Not Found',
+    'error_404_message' => 'The link you tried to access does not exist or has been moved.',
+    'error_404_back_home' => '← Back to homepage',
+
+    'error_expired_title' => 'Link Expired',
+    'error_expired_subtitle' => 'This link is no longer active.',
+    'error_expired_message' => 'The validity period for this shortened link has ended.',
+    'error_expired_create_new' => '← Create a new link',
 ];

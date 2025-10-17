@@ -28,14 +28,32 @@ const applyTranslations = (lang) => {
 
     // 2. Espera a animação terminar para trocar o texto
     setTimeout(() => {
+        // Traduz elementos normais da página
         document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
             const translation = getObjectValue(window.translations[lang], key);
             if (translation) {
-                el.innerText = translation;
+                // Sanitize potential HTML in translation before setting innerText
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = translation;
+                el.innerText = tempDiv.textContent || tempDiv.innerText || "";
             }
         });
 
+        // --- NOVO: Atualiza o Título da Página ---
+        const titleMeta = document.querySelector('meta[name="page-title-key"]');
+        const titleBase = ' - Davi Oliveira'; // Mantenha seu sufixo padrão
+        if (titleMeta) {
+            const titleKey = titleMeta.getAttribute('content');
+            const translatedTitle = getObjectValue(window.translations[lang], titleKey);
+            if (translatedTitle) {
+                 // Sanitize potential HTML before setting document.title
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = translatedTitle;
+                document.title = (tempDiv.textContent || tempDiv.innerText || "") + titleBase;
+            }
+            // Se não encontrar a tradução, mantém o título original renderizado pelo servidor
+        }
         // 3. Atualiza o ícone e o atributo lang
         langIcon.innerText = lang === 'en' ? 'EN' : 'PT';
         document.documentElement.lang = lang;
@@ -48,7 +66,7 @@ const applyTranslations = (lang) => {
 languageToggleBtn.addEventListener('click', () => {
     const currentLang = document.documentElement.lang;
     const newLang = currentLang === 'en' ? 'pt-br' : 'en';
-    
+
     localStorage.setItem('language', newLang);
     applyTranslations(newLang);
 });

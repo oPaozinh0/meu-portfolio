@@ -6,7 +6,7 @@ return [
     'education_title' => 'Formação',
     'skills_title' => 'Principais Habilidades',
 
-    'skills_category_backend' => 'Linguagens',
+    'skills_category_languages' => 'Linguagens',
     'skills_category_frontend' => 'Frameworks',
     'skills_category_databases' => 'Bancos de Dados',
     'skills_category_devops_tools' => 'DevOps & Ferramentas',
@@ -20,7 +20,7 @@ return [
 
     'experience' => [
         'role_1' => 'Desenvolvedor Fullstack',
-        'period_1' => 'Maio 2025 - Presente',
+        'period_1' => 'Maio 2025 - Outubro 2025 (6 meses)',
         'location_1' => 'Chapecó, Santa Catarina, Brasil',
         'description_1_1' => 'Sou responsável pelo desenvolvimento de novas funcionalidades de ponta a ponta.',
         'description_1_2' => 'Projeto e mantenho funcionalidades de backend robustas usando PHP e Laravel, com foco em desempenho e segurança de dados.',
@@ -65,4 +65,33 @@ return [
         'degree_2' => 'Ensino Médio Técnico, Técnico em Informática',
         'period_2' => 'Fevereiro 2015 - Dezembro 2017',
     ],
+
+    'shortlink_title' => 'Encurtador de Links',
+    'shortlink_original_url_label' => 'URL Original',
+    'shortlink_expiry_notice' => 'O link gerado expirará em 3 horas.',
+    'shortlink_button' => 'Encurtar',
+    'shortlink_success_message' => 'Link encurtado com sucesso!',
+    'shortlink_your_link' => 'Seu link:',
+    'shortlink_view_stats' => 'Ver estatísticas',
+
+    'shortlink_stats_title' => 'Estatísticas do Link',
+    'shortlink_stats_original_url' => 'URL Original:',
+    'shortlink_stats_short_link' => 'Link Encurtado:',
+    'shortlink_stats_total_clicks' => 'Total de Cliques:',
+    'shortlink_stats_expires_at' => 'Expira em:',
+    'shortlink_stats_access_log_title' => 'Registros de Acesso',
+    'shortlink_stats_table_datetime' => 'Data / Hora',
+    'shortlink_stats_table_ip' => 'Endereço IP',
+    'shortlink_stats_table_useragent' => 'User Agent',
+    'shortlink_stats_no_clicks' => 'Nenhum clique registrado ainda.',
+    'shortlink_stats_back_link' => '← Voltar para o encurtador',
+
+    'error_404_title' => 'Página Não Encontrada',
+    'error_404_message' => 'O link que você tentou acessar não existe ou foi movido.',
+    'error_404_back_home' => '← Voltar para a página inicial',
+
+    'error_expired_title' => 'Link Expirado',
+    'error_expired_subtitle' => 'Este link não está mais ativo.',
+    'error_expired_message' => 'O tempo de validade deste link encurtado já terminou.',
+    'error_expired_create_new' => '← Criar um novo link',
 ];
