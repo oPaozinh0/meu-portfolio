@@ -1,9 +1,24 @@
 # Estágio 1: Dependências do PHP com Composer
-FROM composer:2-php8.3 AS vendor
+# Estágio 1: Dependências do PHP com Composer
+FROM php:8.3-cli AS vendor
+
+# Instala dependências de sistema necessárias para o Composer (zip, git)
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev
+
+# Instala extensões PHP necessárias
+RUN docker-php-ext-install zip
+
+# Instala o Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 COPY composer.json composer.json
 COPY composer.lock composer.lock
+
+# Roda o install
 RUN composer install --no-interaction --no-dev --prefer-dist --no-scripts
 
 # Estágio 2: Dependências do Node.js com NPM
