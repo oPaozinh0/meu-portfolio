@@ -7,14 +7,21 @@
         <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mt-6" data-translate="hero_title">
             Desenvolvedor Fullstack Sênior especializado na criação de aplicações web robustas e escaláveis com Laravel.
         </p>
-        
+
         <div class="mt-8 flex justify-center items-center space-x-6">
-            <a href="{{ $linkedinUrl }}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300" title="LinkedIn">
-                <x-icons.linkedin class="text-zinc-500 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300"/>
-            </a>
-            <a href="{{ $githubUrl }}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-300" title="GitHub">
-                <x-icons.github class="text-zinc-500 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300"/>
-            </a>
+            <wired-button elevation="2" onclick="window.open('{{ $linkedinUrl }}', '_blank')">
+                <div class="flex items-center gap-2 p-1">
+                    <x-icons.linkedin class="w-6 h-6"/>
+                    <span>LinkedIn</span>
+                </div>
+            </wired-button>
+
+            <wired-button elevation="2" onclick="window.open('{{ $githubUrl }}', '_blank')">
+                <div class="flex items-center gap-2 p-1">
+                    <x-icons.github class="w-6 h-6"/>
+                    <span>GitHub</span>
+                </div>
+            </wired-button>
         </div>
     </div>
 </section>

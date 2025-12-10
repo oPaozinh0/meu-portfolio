@@ -16,5 +16,8 @@
         "postcss": "^8.5.6",
         "tailwindcss": "^3.4.1",
         "vite": "^6.2.4"
+    },
+    "dependencies": {
+        "wired-elements": "^3.0.0-rc.6"
     }
 }

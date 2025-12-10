@@ -1,22 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Nossa Animação Personalizada */
-@layer utilities {
-  .arrow-bounce {
-    animation: bounce 1s infinite;
-  }
+/* Fundo de papel quadriculado sutil */
+body {
+    font-family: 'Patrick Hand', cursive;
+    background-color: #fdfdfd;
+    background-image:
+        linear-gradient(#e5e5e5 1px, transparent 1px),
+        linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #333;
 }
 
-/* Definição Global dos Keyframes */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
+/* O modo dark precisa inverter isso ou usar um fundo tipo "lousa" */
+.dark body {
+    background-color: #1a1a1a;
+    background-image:
+        linear-gradient(#333 1px, transparent 1px),
+        linear-gradient(90deg, #333 1px, transparent 1px);
+    color: #eee;
+}
+
+/* Ajuste para o wired-card se comportar bem com Tailwind */
+wired-card {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Deixa o fundo do site aparecer ou define branco */
+}
+
+.dark wired-card,
+.dark wired-button,
+.dark wired-input,
+.dark wired-textarea {
+    --wired-card-background: #18181b; /* zinc-900 */
+    color: #e4e4e7; /* zinc-200 */
+    /* Infelizmente, wired-elements usa SVG stroke, pode ser difícil mudar a cor da borda via CSS externo dependendo da versão.
+       Geralmente eles herdam 'currentColor' se configurado, ou você precisa forçar via propriedade de estilo inline se a lib permitir. */
 }

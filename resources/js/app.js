@@ -3,7 +3,8 @@ import './bootstrap';
 // Importa a biblioteca AOS e seu CSS
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+// Importa os elementos sketchy
+import 'wired-elements';
 // Inicializa a biblioteca
 AOS.init({
     duration: 800,
