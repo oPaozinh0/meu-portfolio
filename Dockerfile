@@ -72,6 +72,7 @@ COPY docker/nginx/default.conf      /etc/nginx/http.d/default.conf
 COPY docker/supervisor/supervisord.conf /etc/supervisord.conf
 COPY docker/php/opcache.ini         /usr/local/etc/php/conf.d/opcache.ini
 COPY docker/php/www.conf            /usr/local/etc/php-fpm.d/www.conf
+COPY docker/entrypoint.sh           /usr/local/bin/entrypoint.sh
 
 WORKDIR /var/www/html
 
@@ -80,10 +81,16 @@ COPY . .
 COPY --from=vendor   /app/vendor/        ./vendor/
 COPY --from=frontend /app/public/build/  ./public/build/
 
-# Filesystem permissions + SQLite + autoload + Laravel optimizations
-RUN mkdir -p storage/framework/{cache,sessions,views,testing} \
+# Build-time setup: dirs, autoload, package discovery.
+# As otimizações de cache (config/route/view/event) e migrations rodam
+# em runtime via entrypoint.sh (quando env vars de plataforma estão setadas).
+RUN mkdir -p storage/framework/cache \
+             storage/framework/sessions \
+             storage/framework/views \
+             storage/framework/testing \
              storage/logs \
              bootstrap/cache \
+             /run/nginx \
     && touch storage/database.sqlite \
     && chown -R www-data:www-data /var/www/html/storage \
                                   /var/www/html/bootstrap/cache \
@@ -91,22 +98,14 @@ RUN mkdir -p storage/framework/{cache,sessions,views,testing} \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache \
     && composer dump-autoload --optimize --classmap-authoritative --no-dev \
     && php artisan package:discover --ansi --no-interaction \
-    && php artisan migrate --force --no-interaction \
-    && php artisan storage:link \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache \
-    && php artisan event:cache
-
-# nginx pid dir + log redirect
-RUN mkdir -p /run/nginx \
+    && chmod +x /usr/local/bin/entrypoint.sh \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 80
 
-# Healthcheck para orquestradores
-HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
     CMD wget -q -O- http://127.0.0.1/up || exit 1
 
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["supervisord", "-c", "/etc/supervisord.conf"]
