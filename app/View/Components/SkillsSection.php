@@ -42,10 +42,10 @@ class SkillsSection extends Component
                 
             ],
             'Concepts' => [
-                ['name' => 'ETLs', 'icon' => 'fa-solid fa-shuffle'], 
-                ['name' => 'Data Quality', 'icon' => 'fa-solid fa-check-double'], 
-                ['name' => 'Data Migration', 'icon' => 'fa-solid fa-database'], 
-                ['name' => 'Agile Methodology', 'icon' => 'fa-solid fa-arrows-split-up-and-left']
+                ['name' => 'ETLs', 'icon' => 'icons.skills.etl'],
+                ['name' => 'Data Quality', 'icon' => 'icons.skills.data-quality'],
+                ['name' => 'Data Migration', 'icon' => 'icons.skills.data-migration'],
+                ['name' => 'Agile Methodology', 'icon' => 'icons.skills.agile'],
             ],
         ];
     }

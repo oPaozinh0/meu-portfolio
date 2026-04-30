@@ -1,10 +1,70 @@
 <?php
 
 return [
+    'meta_title' => 'Davi Oliveira · CTO & Co-founder Attrion · Senior Fullstack Laravel Developer',
+    'meta_description' => 'Davi Oliveira is CTO & Co-founder of Attrion (multi-tenant TikTok Ads SaaS). Senior Fullstack Developer specializing in Laravel, PHP, MySQL, Redis, and distributed architecture.',
+    'meta_keywords' => 'Davi Oliveira, CTO, Co-founder, Attrion, Fullstack Developer, Laravel, PHP, TikTok Ads, SaaS, Brazil, Web Developer, Software Engineer',
+    'meta_image_alt' => 'Davi Oliveira · CTO & Co-founder Attrion · Senior Fullstack Laravel Developer',
+    'site_name' => 'Davi Oliveira',
+
+    'hero_role' => 'Fullstack Engineering',
     'hero_title' => 'Senior Fullstack Developer specializing in crafting robust and scalable web applications with Laravel.',
+    'hero_cta_contact' => 'Contact',
+    'hero_scroll' => 'Scroll down',
+
+    'nav_about' => 'About',
+    'nav_experience' => 'Experience',
+    'nav_skills' => 'Skills',
+    'nav_contact' => 'Contact',
+    'lang_switch_aria' => 'Switch language',
+    'skip_to_content' => 'Skip to content',
+    'back_to_top' => 'Back to top',
+    'copy_email' => 'Copy email',
+    'copy_email_done' => 'Copied!',
+
     'experience_title' => 'Experience',
+    'experience_heading' => 'Journey.',
     'education_title' => 'Education',
+    'education_heading' => 'Background.',
     'skills_title' => 'Main Skills',
+    'skills_heading' => 'Stack.',
+    'about_heading' => 'Who I am.',
+
+    'nav_projects' => 'Projects',
+    'now_title' => 'Now',
+    'now_heading' => 'Now.',
+    'now_intro' => 'A page inspired by <a href="https://nownownow.com" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">nownownow.com</a>: what I\'m focused on right now — updated as things shift.',
+    'now_focus_label' => 'Main focus',
+    'now_focus_value' => 'Building Attrion — a multi-tenant SaaS platform for managing TikTok Ads at scale. CTO seat, still hands-on across the stack: Laravel 12 backend, Blade + Alpine frontend, TikTok Marketing API integration, Pagar.me billing, containerized deploy.',
+    'now_stack_label' => 'Daily stack',
+    'now_stack_value' => 'Laravel 12 · PHP 8.4 · MySQL · Redis · Laravel Horizon · Laravel Reverb · Tailwind v4 · Alpine.js · Pagar.me · Docker',
+    'now_learning_label' => 'Learning',
+    'now_learning_value' => 'Query optimization with Redis sliding-window via Lua scripts, scaling Laravel Reverb (WebSockets), and the nuances of TikTok Marketing API v1.3.',
+    'now_location_label' => 'Based in',
+    'now_location_value' => 'Brazil · Remote',
+    'now_last_update_label' => 'Last updated',
+    'now_back_home' => '← Back home',
+    'projects_title' => 'Projects',
+    'projects_heading' => 'Shipped.',
+    'project_status_production' => 'In production',
+    'project_status_open_source' => 'Open Source',
+    'project_status_wip' => 'In progress',
+    'project_link_visit' => 'Visit',
+    'project_link_demo' => 'Demo',
+    'project_link_github' => 'GitHub',
+
+    'project_attrion_desc' => 'Multi-tenant SaaS platform for managing TikTok Ads at scale — agencies and traffic managers operating dozens of accounts from a single panel. Automatic 5-minute sync, batch creation (Campaign + AdGroup + Ad in one submission), ROAS/CPA-based automations, and mass appeals for rejected accounts.',
+    'project_shortener_desc' => 'URL shortener with real-time analytics, 3-hour expiration, and detailed access logs. Open source — same repository as this portfolio. Stack: Laravel 12, SQLite, Alpine.js, and Tailwind v4.',
+    'about_kpi_years_label' => 'Years of experience',
+    'about_kpi_years_value' => '7+',
+    'about_kpi_roles_label' => 'Roles',
+    'about_kpi_roles_value' => '7',
+    'about_kpi_startup_label' => 'Startup',
+    'about_kpi_startup_value' => 'Attrion',
+    'about_kpi_location_label' => 'Based in',
+    'about_kpi_location_value' => 'Brazil · Remote',
+    'footer_heading' => "Let's talk.",
+    'footer_shortener_link' => '→ Link shortener',
 
     'skills_category_languages' => 'Languages',
     'skills_category_frontend' => 'Frameworks',
@@ -18,7 +78,16 @@ return [
     'about_title' => 'About Me',
     'about_description' => 'I am a developer passionate about creating elegant and efficient solutions. With a solid foundation in PHP and Laravel, I constantly seek to learn new technologies to build robust, high-quality web applications. Outside of code, I enjoy exploring the world of digital games, which gives me a creative perspective on problem-solving.',
 
+    'experience_current_badge' => 'Current',
+
     'experience' => [
+        'role_0' => 'CTO & Co-founder',
+        'period_0' => 'November 2025 - Present',
+        'location_0' => 'Brazil · Remote',
+        'description_0_1' => 'Built the multi-tenant Laravel 12 backend: TikTok Marketing API v1.3 integration with 3 rate-limit layers (sliding-window Redis via Lua script), idempotent Horizon jobs, and automatic full-tree sync (BC → Advertiser → Campaign → Ad Group → Ad) every 5 minutes.',
+        'description_0_2' => 'Designed the dark-first frontend with Blade + Alpine.js + Tailwind: reactive dashboards, multi-step wizard that creates the entire TikTok tree in one submission, and real-time updates via Laravel Reverb (WebSockets) + Echo.',
+        'description_0_3' => 'Implemented the Pagar.me billing pipeline (Pix + card) with webhooks and CDC-compliant holds, dedicated Partner Portal with its own OAuth, batch Appeals system for rejected accounts, and containerized deployment with hot reload via docker cp.',
+
         'role_1' => 'Fullstack Developer',
         'period_1' => 'May 2025 - October 2025 (6 months)',
         'location_1' => 'Chapecó, Santa Catarina, Brazil',
@@ -86,9 +155,27 @@ return [
     'shortlink_stats_no_clicks' => 'No clicks recorded yet.',
     'shortlink_stats_back_link' => '← Back to shortener',
 
+    'error_back_home' => '← Back to home',
+    'error_reload' => 'Reload',
+
     'error_404_title' => 'Page Not Found',
     'error_404_message' => 'The link you tried to access does not exist or has been moved.',
     'error_404_back_home' => '← Back to homepage',
+
+    'error_403_title' => 'Access Denied',
+    'error_403_message' => 'You do not have permission to access this resource.',
+
+    'error_419_title' => 'Session Expired',
+    'error_419_message' => 'Your session has expired due to inactivity. Reload the page and try again.',
+
+    'error_429_title' => 'Too Many Requests',
+    'error_429_message' => 'You are making requests too fast. Wait a few moments and try again.',
+
+    'error_500_title' => 'Server Error',
+    'error_500_message' => 'Something went wrong on my end. I have been notified — try again shortly.',
+
+    'error_503_title' => 'Under Maintenance',
+    'error_503_message' => 'The site is undergoing a quick maintenance. Back soon.',
 
     'error_expired_title' => 'Link Expired',
     'error_expired_subtitle' => 'This link is no longer active.',

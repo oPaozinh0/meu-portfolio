@@ -1,24 +1,61 @@
-<footer id="contact" class="py-10 border-t border-zinc-100 dark:border-zinc-800">
-    <div class="max-w-3xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold mb-4" data-translate="contact_title">Contato</h2>
+{{-- Rodapé · contato --}}
+<footer id="contact" class="footer">
+    <div class="ph-label c" style="justify-content: center; margin-bottom: 1rem;">
+        {{ __('portfolio.contact_title') }}
+    </div>
+    <h2 class="section-title" style="margin-bottom: 1.5rem;">{{ __('portfolio.footer_heading') }}</h2>
 
-        <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-8" data-translate="footer_cta">
-            Ficou interessado no meu trabalho ou tem um projeto em mente? Vamos conversar!
-        </p>
+    <p class="footer-cta">{{ __('portfolio.footer_cta') }}</p>
 
-        <div class="flex justify-center items-center space-x-8 mb-8">
-            <a href="mailto:{{ $email }}" class="text-zinc-500 hover:text-amber-700 transition-colors duration-300" title="Email">
-                <x-icons.email/>
-            </a>
-            <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-green-500 transition-colors duration-300" title="WhatsApp">
-                <x-icons.whatsapp/>
-            </a>
+    <div class="contact-grid"
+         x-data="{
+            email: @js($email),
+            copied: false,
+            copy() {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(this.email).then(() => {
+                        this.copied = true;
+                        setTimeout(() => this.copied = false, 1800);
+                    }).catch(() => window.location.href = 'mailto:' + this.email);
+                } else {
+                    window.location.href = 'mailto:' + this.email;
+                }
+            }
+         }">
+        <button type="button"
+                class="contact-icon-link"
+                @click="copy()"
+                :title="copied ? @js(__('portfolio.copy_email_done')) : @js(__('portfolio.copy_email'))"
+                :aria-label="copied ? @js(__('portfolio.copy_email_done')) : @js(__('portfolio.copy_email'))"
+                style="background: transparent; cursor: none;">
+            <span x-show="!copied"><x-icons.email /></span>
+            <span x-show="copied" x-cloak style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--green);">✓</span>
+        </button>
+        <a href="https://wa.me/{{ $whatsappNumber }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="contact-icon-link whatsapp"
+           title="WhatsApp"
+           aria-label="Conversar no WhatsApp">
+            <x-icons.whatsapp />
+        </a>
+    </div>
+
+    <div style="margin-top: 1.5rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+        <a href="{{ route('shortlink.create') }}" class="form-link" style="font-size: 11px;">
+            {{ __('portfolio.footer_shortener_link') }}
+        </a>
+        <a href="{{ route('now') }}" class="form-link" style="font-size: 11px;">
+            → /now
+        </a>
+    </div>
+
+    <div class="footer-meta">
+        <div class="dots">
+            <div class="dot dot-c"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-p"></div>
         </div>
-        <div class="mb-8">
-            <a href="{{ route('shortlink.create') }}" class="text-amber-600 dark:text-amber-400 hover:underline">Encurtador de Links</a>
-        </div>
-        <p class="text-sm text-zinc-500">
-            &copy; {{ $currentYear }} Davi Oliveira. <span data-translate="footer_rights">Todos os direitos reservados.</span>
-        </p>
+        <span>© {{ $currentYear }} Davi Oliveira · {{ __('portfolio.footer_rights') }}</span>
     </div>
 </footer>

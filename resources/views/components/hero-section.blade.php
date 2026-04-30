@@ -1,32 +1,40 @@
-<section class="min-h-screen flex flex-col items-center justify-center text-center px-4">
-    <div class="max-w-3xl">
-        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-amber-800 dark:text-amber-300">
-            {{ $name }}
-        </h1>
-        {{-- Texto a ser traduzido --}}
-        <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mt-6" data-translate="hero_title">
-            Desenvolvedor Fullstack Sênior especializado na criação de aplicações web robustas e escaláveis com Laravel.
-        </p>
+{{-- Hero — landing pessoal estilo Attrion --}}
+<section id="hero" class="hero-screen">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-        <div class="mt-8 flex justify-center items-center space-x-6">
-            <wired-button elevation="2" onclick="window.open('{{ $linkedinUrl }}', '_blank')">
-                <div class="flex items-center gap-2 p-1">
-                    <x-icons.linkedin class="w-6 h-6"/>
-                    <span>LinkedIn</span>
-                </div>
-            </wired-button>
+    <div class="hero-content">
+        <div class="ph-label c" style="justify-content: center; margin-bottom: 1.25rem;">
+            {{ __('portfolio.hero_role') }}
+        </div>
 
-            <wired-button elevation="2" onclick="window.open('{{ $githubUrl }}', '_blank')">
-                <div class="flex items-center gap-2 p-1">
-                    <x-icons.github class="w-6 h-6"/>
-                    <span>GitHub</span>
-                </div>
-            </wired-button>
+        <h1 class="hero-name">{{ $name }}</h1>
+
+        <p class="hero-tagline">{{ $title }}</p>
+
+        <div class="hero-stack" aria-label="Stack principal">
+            <span class="hero-stack-item">Laravel</span>
+            <span class="hero-stack-item">PHP</span>
+            <span class="hero-stack-item">TypeScript</span>
+            <span class="hero-stack-item">PostgreSQL</span>
+            <span class="hero-stack-item">Redis</span>
+        </div>
+
+        <div class="hero-ctas">
+            <a href="{{ $linkedinUrl }}" target="_blank" rel="me noopener" class="hero-cta primary">
+                <x-icons.linkedin class="w-4 h-4" />
+                LinkedIn
+            </a>
+            <a href="{{ $githubUrl }}" target="_blank" rel="me noopener" class="hero-cta">
+                <x-icons.github class="w-4 h-4" />
+                GitHub
+            </a>
+            <a href="#contact" class="hero-cta">
+                <x-icons.email class="w-4 h-4" />
+                {{ __('portfolio.hero_cta_contact') }}
+            </a>
         </div>
     </div>
+
+    <a href="#about" class="scroll-indicator">{{ __('portfolio.hero_scroll') }}</a>
 </section>
-<div id="hero-scroll-indicator" class="absolute bottom-8 left-1/2 -translate-x-1/2">
-    <a href="#about" class="text-amber-500">
-        <x-icons.arrow-down class="w-8 h-8"/>
-    </a>
-</div>

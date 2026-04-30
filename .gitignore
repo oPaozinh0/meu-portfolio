@@ -19,6 +19,10 @@
 /storage/*.key
 /storage/pail
 /vendor
+/.claude
+/BRIEFING_ATTRION.md
+/database/database.sqlite
+/layout-previews
 Homestead.json
 Homestead.yaml
 Thumbs.db

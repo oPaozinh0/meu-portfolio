@@ -1,66 +1,112 @@
-# Estágio 1: Dependências do PHP com Composer
-# Estágio 1: Dependências do PHP com Composer
-FROM php:8.3-cli AS vendor
+# =============================================================================
+# Production image: nginx + php-fpm + supervisor
+# Build:  docker build -t davioliveira-portfolio .
+# Run:    docker run -p 80:80 davioliveira-portfolio
+# =============================================================================
 
-# Instala dependências de sistema necessárias para o Composer (zip, git)
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    libzip-dev
+# ---- Stage 1: Composer / PHP vendor ----
+FROM php:8.3-cli-alpine AS vendor
 
-# Instala extensões PHP necessárias
-RUN docker-php-ext-install zip
+RUN apk add --no-cache git unzip libzip-dev \
+    && docker-php-ext-install zip
 
-# Instala o Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
-COPY composer.json composer.json
-COPY composer.lock composer.lock
+COPY composer.json composer.lock ./
+# Sem --classmap-authoritative aqui: classmap final é regenerado no stage app
+# (depois de copiar app/, database/, etc.) com --classmap-authoritative.
+RUN composer install \
+        --no-interaction \
+        --no-dev \
+        --prefer-dist \
+        --no-scripts \
+        --no-autoloader
 
-# Roda o install
-RUN composer install --no-interaction --no-dev --prefer-dist --no-scripts
-
-# Estágio 2: Dependências do Node.js com NPM
-FROM node:18 AS frontend
+# ---- Stage 2: Node frontend (Vite build) ----
+FROM node:20-alpine AS frontend
 
 WORKDIR /app
-COPY package.json package.json
-COPY package-lock.json package-lock.json
-COPY vite.config.js vite.config.js
-COPY tailwind.config.js tailwind.config.js
-COPY postcss.config.js postcss.config.js
-COPY resources/ resources/
-RUN npm install && npm run build
+COPY package.json package-lock.json ./
+RUN npm ci
 
-# Estágio 3: Construção Final da Aplicação
-FROM php:8.3-fpm
+COPY vite.config.js tailwind.config.js postcss.config.js ./
+COPY resources/ resources/
+COPY public/ public/
+RUN npm run build
+
+# ---- Stage 3: Final runtime (nginx + php-fpm + supervisor) ----
+FROM php:8.3-fpm-alpine AS app
+
+# System dependencies + PHP extensions
+RUN apk add --no-cache \
+        nginx \
+        supervisor \
+        bash \
+        sqlite \
+        sqlite-dev \
+        libzip-dev \
+        libpng-dev \
+        libjpeg-turbo-dev \
+        freetype-dev \
+        oniguruma-dev \
+        icu-dev \
+        tzdata \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) \
+        gd \
+        zip \
+        pdo \
+        pdo_sqlite \
+        bcmath \
+        mbstring \
+        intl \
+        opcache \
+    && rm -rf /var/cache/apk/*
+
+# Composer (pra regenerar autoload com app/ presente)
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Configs
+COPY docker/nginx/default.conf      /etc/nginx/http.d/default.conf
+COPY docker/supervisor/supervisord.conf /etc/supervisord.conf
+COPY docker/php/opcache.ini         /usr/local/etc/php/conf.d/opcache.ini
+COPY docker/php/www.conf            /usr/local/etc/php-fpm.d/www.conf
 
 WORKDIR /var/www/html
 
-# Instala dependências do sistema e extensões PHP usando apt-get
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    zip \
-    unzip \
-    libsqlite3-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_sqlite bcmath zip
-
-# Copia os arquivos da aplicação e as dependências instaladas
+# Application code
 COPY . .
-COPY --from=vendor /app/vendor/ ./vendor/
-COPY --from=frontend /app/public/build ./public/build
+COPY --from=vendor   /app/vendor/        ./vendor/
+COPY --from=frontend /app/public/build/  ./public/build/
 
-RUN php artisan config:clear && touch storage/database.sqlite && php artisan migrate --force
+# Filesystem permissions + SQLite + autoload + Laravel optimizations
+RUN mkdir -p storage/framework/{cache,sessions,views,testing} \
+             storage/logs \
+             bootstrap/cache \
+    && touch storage/database.sqlite \
+    && chown -R www-data:www-data /var/www/html/storage \
+                                  /var/www/html/bootstrap/cache \
+                                  /var/www/html/public/build \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache \
+    && composer dump-autoload --optimize --classmap-authoritative --no-dev \
+    && php artisan package:discover --ansi --no-interaction \
+    && php artisan migrate --force --no-interaction \
+    && php artisan storage:link \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache \
+    && php artisan event:cache
 
-# Ajusta permissões
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && \
-    chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# nginx pid dir + log redirect
+RUN mkdir -p /run/nginx \
+    && ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 8000
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+EXPOSE 80
+
+# Healthcheck para orquestradores
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD wget -q -O- http://127.0.0.1/up || exit 1
+
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]

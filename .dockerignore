@@ -1,0 +1,69 @@
+# Git
+.git
+.gitignore
+.gitattributes
+.github
+
+# IDE / OS
+.idea
+.vscode
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local dev environment
+docker-compose.yml
+docker-compose.override.yml
+Dockerfile.dev
+.dockerignore
+
+# Node — built in frontend stage
+node_modules
+npm-debug.log*
+yarn-error.log
+
+# Composer — installed in vendor stage
+vendor
+
+# Pre-built assets — rebuilt in frontend stage
+public/build
+public/hot
+
+# Local env (use platform secrets / env vars in prod)
+.env.local
+.env.dev
+.env.test
+.env.example
+.env.backup
+
+# Testing
+tests
+phpunit.xml
+.phpunit.result.cache
+
+# Logs and cache
+storage/logs/*.log
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+bootstrap/cache/*.php
+!storage/logs/.gitignore
+!storage/framework/cache/.gitignore
+!storage/framework/sessions/.gitignore
+!storage/framework/views/.gitignore
+!bootstrap/cache/.gitignore
+
+# Local SQLite (será criado no build com migrations limpas)
+database/database.sqlite
+
+# Docs/dev-only
+BRIEFING_ATTRION.md
+layout-previews
+resources/og-source.html
+
+# CI artifacts
+coverage
+.nyc_output
+
+# Misc
+*.log

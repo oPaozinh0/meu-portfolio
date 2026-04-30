@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Fundo noir com gradient sutil -->
+  <defs>
+    <radialGradient id="bg" cx="20%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0ede6"/>
+      <stop offset="50%" stop-color="#21d4fd"/>
+      <stop offset="100%" stop-color="#e83f6f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Blobs decorativos -->
+  <circle cx="1050" cy="120" r="220" fill="#21d4fd" opacity="0.06"/>
+  <circle cx="100" cy="540" r="180" fill="#e83f6f" opacity="0.08"/>
+
+  <!-- Border editorial superior -->
+  <line x1="80" y1="120" x2="120" y2="120" stroke="#21d4fd" stroke-width="3"/>
+
+  <!-- Label -->
+  <text x="135" y="128" font-family="Montserrat, Inter, system-ui, sans-serif" font-weight="700"
+        font-size="18" letter-spacing="4" fill="#21d4fd" text-anchor="start">CTO &amp; CO-FOUNDER</text>
+
+  <!-- Nome (gradient) -->
+  <text x="80" y="320" font-family="Montserrat, Inter, system-ui, sans-serif" font-weight="900"
+        font-size="160" letter-spacing="-7" fill="url(#grad)" text-anchor="start">Davi Oliveira</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="395" font-family="Montserrat, Inter, system-ui, sans-serif" font-weight="500"
+        font-size="32" fill="rgba(240,237,230,0.7)" text-anchor="start">Building Attrion · TikTok Ads at scale</text>
+
+  <!-- Stack pills (mono) -->
+  <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="22" font-weight="700">
+    <text x="80" y="510" fill="#21d4fd">Laravel</text>
+    <text x="220" y="510" fill="rgba(240,237,230,0.4)">·</text>
+    <text x="248" y="510" fill="#e83f6f">PHP</text>
+    <text x="318" y="510" fill="rgba(240,237,230,0.4)">·</text>
+    <text x="346" y="510" fill="#f5e642">TypeScript</text>
+    <text x="525" y="510" fill="rgba(240,237,230,0.4)">·</text>
+    <text x="553" y="510" fill="#4ade80">PostgreSQL</text>
+    <text x="745" y="510" fill="rgba(240,237,230,0.4)">·</text>
+    <text x="773" y="510" fill="rgba(240,237,230,0.6)">Redis</text>
+  </g>
+
+  <!-- Dots assinatura (canto inferior direito) -->
+  <circle cx="1100" cy="555" r="9" fill="#21d4fd"/>
+  <circle cx="1080" cy="555" r="9" fill="#f5e642"/>
+  <circle cx="1060" cy="555" r="9" fill="#e83f6f"/>
+
+  <!-- URL -->
+  <text x="80" y="588" font-family="JetBrains Mono, ui-monospace, monospace" font-weight="400"
+        font-size="18" letter-spacing="2" fill="rgba(240,237,230,0.35)">opaozinh0.live</text>
+</svg>
