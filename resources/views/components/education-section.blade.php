@@ -22,5 +22,21 @@
                 </div>
             @endforeach
         </div>
+
+        <div class="section-header" style="text-align: left; margin-top: 3rem;">
+            <div class="ph-label c">{{ __('portfolio.languages_title') }}</div>
+            <h2 class="section-title">{{ __('portfolio.languages_heading') }}</h2>
+        </div>
+
+        <div class="edu-grid">
+            <div class="edu-card">
+                <div class="edu-degree">{{ __('portfolio.language_portuguese') }}</div>
+                <div class="edu-period">{{ __('portfolio.language_portuguese_level') }}</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-degree">{{ __('portfolio.language_english') }}</div>
+                <div class="edu-period">{{ __('portfolio.language_english_level') }}</div>
+            </div>
+        </div>
     </div>
 </section>

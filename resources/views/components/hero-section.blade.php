@@ -15,6 +15,8 @@
         <div class="hero-stack" aria-label="Stack principal">
             <span class="hero-stack-item">Laravel</span>
             <span class="hero-stack-item">PHP</span>
+            <span class="hero-stack-item">Vue.js</span>
+            <span class="hero-stack-item">Python</span>
             <span class="hero-stack-item">TypeScript</span>
             <span class="hero-stack-item">PostgreSQL</span>
             <span class="hero-stack-item">Redis</span>
@@ -29,6 +31,12 @@
                 <x-icons.github class="w-4 h-4" />
                 GitHub
             </a>
+            @if ($cvUrl)
+                <a href="{{ $cvUrl }}" download class="hero-cta">
+                    <x-icons.download class="w-4 h-4" />
+                    {{ __('portfolio.hero_cta_cv') }}
+                </a>
+            @endif
             <a href="#contact" class="hero-cta">
                 <x-icons.email class="w-4 h-4" />
                 {{ __('portfolio.hero_cta_contact') }}

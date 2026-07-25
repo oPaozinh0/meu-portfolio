@@ -111,6 +111,12 @@ return [
 
     'education' => [
         [
+            'institution' => 'Faculdade Metropolitana do Estado de São Paulo',
+            'degree' => 'degree_3',
+            'period' => 'period_3',
+            'location' => 'São Paulo, Brazil',
+        ],
+        [
             'institution' => 'Centro Universitário Católico Salesiano Auxilium - UniSALESIANO',
             'degree' => 'degree_1',
             'period' => 'period_1',
