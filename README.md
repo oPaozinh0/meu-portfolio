@@ -1,97 +1,80 @@
-# Fullstack Developer Digital CV - Davi Oliveira
+# Digital CV & Portfolio — Davi Oliveira
 
-![CV Preview](https://i.imgur.com/fvIQp4q.png)
+Personal portfolio and digital CV of **Davi Oliveira** — Senior Full Stack Developer & CTO/Co-founder at Attrion. Built as a server-rendered **Laravel 12** application with a custom design system ("Attrion"), full PT-BR/EN internationalization, multiple color themes, and a couple of embedded side utilities.
 
-## 🚀 About This Project
+🔗 Live: [attrion.com.br](https://attrion.com.br) · 💼 [LinkedIn](https://www.linkedin.com/in/davio-vieira) · 🐙 [GitHub](https://github.com/oPaozinh0)
 
-This is my personal CV, developed to showcase my skills and experience as a Fullstack Developer. The application was built with the **Laravel** framework on the backend and **Tailwind CSS** with **Vite** for the frontend, resulting in a modern, responsive, and high-performance page.
+## ✨ Features
 
-The site features a clean design, a theme switcher (light/dark), and multi-language support (Portuguese and English), all handled dynamically on the client-side with JavaScript.
+- **Server-rendered portfolio** — hero, about, projects, experience, education, languages, skills and contact sections, driven by Blade components.
+- **Internationalization (PT-BR / EN)** — locale is persisted in the session and applied through the `SetLocale` middleware; switch via `/lang/{locale}`. All copy lives in `resources/lang/{pt-br,en}/portfolio.php`.
+- **Theming** — multiple dark/light themes selected via a `data-theme` attribute, with an anti-flash inline script and preference stored in `localStorage`.
+- **Scroll reveal & motion** — lightweight `IntersectionObserver`-based reveal (no external animation library), with `prefers-reduced-motion` support.
+- **Downloadable CV** — the resume PDF is served from `public/cv-davi-oliveira-en.pdf` and linked from the hero.
+- **URL shortener** — an embedded tool (`/s`) with real-time analytics, expiring links and access logs, plus an authenticated admin dashboard.
+- **SEO** — dynamic meta tags, Schema.org JSON-LD (Person / WebSite / ProfilePage), Open Graph image and a dynamically generated `sitemap.xml`.
 
-### ✨ Features
+## 🛠️ Tech Stack
 
-- **Responsive Design:** Fully adaptive for desktops, tablets, and mobile devices.
-- **Theme Switcher:** Toggle between light and dark modes, with the user's preference saved in their browser.
-- **Multi-Language Support:** Content is available in both Portuguese and English, with a dynamic language switcher that doesn't require a page reload.
-- **Subtle Animations:** Utilizes the `AOS` library for on-scroll animations that enhance the user experience.
-- **SEO Optimized:** Dynamic meta tags for better search engine visibility and social media sharing.
+- **Backend:** PHP 8.2+, Laravel 12
+- **Frontend:** Blade, Alpine.js, Tailwind CSS 3 (via PostCSS), custom `attrion.css` design system, Vite 6
+- **Fonts / icons:** Montserrat + JetBrains Mono, devicon (CDN) for skill icons
+- **Database:** SQLite (default) / MySQL / PostgreSQL
+- **Tooling:** Composer, NPM, Laravel Pint, PHPUnit
 
-### 🛠️ Technologies Used
+## 📂 Content structure
 
-This project was built with the following technologies:
+Portfolio content is split across three places:
 
-- **Backend:**
-    - PHP 8.2+
-    - Laravel 12
-- **Frontend:**
-    - Tailwind CSS
-    - Vite
-    - JavaScript (ES6+)
-    - AOS (Animate On Scroll)
-- **Development Tools:**
-    - Composer
-    - NPM
-    - Laravel Sail (Docker-based development environment)
-    - Laravel Pint (Code formatter)
+- `config/portfolio.php` — structured data for experiences, projects and education (companies, tags, links, translation-key references).
+- `resources/lang/{pt-br,en}/portfolio.php` — all human-readable text (both languages, parallel keys).
+- `app/View/Components/*.php` — component-level data such as the hero identity, skills list and contact details.
 
-## 🔧 Installation and Setup
+## 🔧 Local setup
 
-To run this project locally, follow the steps below:
+```bash
+git clone https://github.com/oPaozinh0/meu-portfolio.git
+cd meu-portfolio
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/oPaozinh0/meu-portfolio.git](https://github.com/oPaozinh0/meu-portfolio.git)
-    cd meu-portfolio
-    ```
+composer install
+npm install
 
-2.  **Install PHP dependencies:**
-    ```bash
-    composer install
-    ```
+cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite
+php artisan migrate
+```
 
-3.  **Install Node.js dependencies:**
-    ```bash
-    npm install
-    ```
+Run the app (serves Laravel on port 8001 + Vite dev server concurrently):
 
-4.  **Set up the environment:**
-    - Copy the example environment file:
-      ```bash
-      cp .env.example .env
-      ```
-    - Generate the application key:
-      ```bash
-      php artisan key:generate
-      ```
+```bash
+composer dev
+```
 
-5.  **Run the development server:**
-    - You can use Laravel Sail (requires Docker):
-      ```bash
-      # Start the containers
-      ./vendor/bin/sail up -d
+Or run each process separately:
 
-      # Compile assets with Vite
-      ./vendor/bin/sail npm run dev
-      ```
-    - Or use the local PHP server and Vite separately:
-      ```bash
-      # In one terminal
-      php artisan serve
+```bash
+php artisan serve   # terminal 1
+npm run dev         # terminal 2
+```
 
-      # In another terminal
-      npm run dev
-      ```
+Then open the URL printed by `artisan serve`.
 
-6.  **Access the application:**
-    Open your browser and navigate to `http://localhost:8000`.
+## 🧪 Tests & formatting
+
+```bash
+composer test          # config:clear + artisan test
+./vendor/bin/pint      # code style
+```
+
+## 🚀 Deployment
+
+Production runs from a multi-stage **Dockerfile** (nginx + php-fpm + supervisor). `docker/entrypoint.sh` boots the container: ensures the SQLite file exists, rebuilds config/route/view caches with runtime env, runs `migrate --force` and `storage:link`, then starts supervisord. A `HEALTHCHECK` hits `/up`. The image targets generic container platforms (Render, Fly, Railway).
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
 Made with ❤️ by **Davi Oliveira**.
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Davi%20Oliveira-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/davio-vieira)
-[![GitHub](https://img.shields.io/badge/GitHub-oPaozinh0-181717?style=for-the-badge&logo=github)](https://github.com/oPaozinh0)

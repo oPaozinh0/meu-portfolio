@@ -16,6 +16,8 @@ class HeroSection extends Component
 
     public string $githubUrl;
 
+    public ?string $cvUrl;
+
     /**
      * Create a new component instance.
      */
@@ -25,6 +27,9 @@ class HeroSection extends Component
         $this->title = __('portfolio.hero_title');
         $this->linkedinUrl = 'https://www.linkedin.com/in/davio-vieira';
         $this->githubUrl = 'https://github.com/oPaozinh0';
+        $this->cvUrl = file_exists(public_path('cv-davi-oliveira-en.pdf'))
+            ? asset('cv-davi-oliveira-en.pdf')
+            : null;
     }
 
     /**

@@ -10,7 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Patrick Hand"', ...defaultTheme.fontFamily.sans],
+        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
       },
       keyframes: {
         bounce: {
