@@ -8,7 +8,8 @@
 
         <div class="skills-grid">
             @foreach ($skillCategories as $category => $skills)
-                <div class="skill-card">
+                @php $catSlug = strtolower(str_replace([' & ', ' '], ['_', '_'], $category)); @endphp
+                <div class="skill-card skill-cat-{{ $catSlug }} reveal-delay-{{ min($loop->iteration, 6) }}">
                     <div class="skill-category">
                         {{ __('portfolio.skills_category_' . strtolower(str_replace(' & ', '_', $category))) }}
                     </div>
@@ -23,7 +24,7 @@
                                         <x-dynamic-component :component="$skill['icon']" class="w-4 h-4" />
                                     @endif
                                 </span>
-                                {{ $skill['name'] }}
+                                <span class="skill-name">{{ $skill['name'] }}</span>
                             </span>
                         @endforeach
                     </div>

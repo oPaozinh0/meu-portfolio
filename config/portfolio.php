@@ -3,12 +3,26 @@
 return [
     'experiences' => [
         [
+            'role' => 'role_solinftec',
+            'company' => 'Solinftec',
+            'website' => 'https://www.solinftec.com',
+            'period' => 'period_solinftec',
+            'location' => 'location_solinftec',
+            'current' => true,
+            'description' => [
+                'description_solinftec_1',
+                'description_solinftec_2',
+                'description_solinftec_3',
+                'description_solinftec_4',
+            ],
+        ],
+        [
             'role' => 'role_0',
             'company' => 'Attrion',
             'website' => 'https://attrion.com.br',
             'period' => 'period_0',
             'location' => 'location_0',
-            'current' => true,
+            'current' => false,
             'description' => [
                 'description_0_1',
                 'description_0_2',
@@ -86,6 +100,17 @@ return [
         ],
     ],
     'projects' => [
+        [
+            'key' => 'medie',
+            'name' => 'Mediê',
+            'accent' => 'var(--green)',
+            'status' => 'production',
+            'tags' => ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AI / OCR', 'PWA', 'LGPD'],
+            'links' => [
+                ['label_key' => 'project_link_visit', 'url' => 'https://medie.vercel.app', 'primary' => true],
+                ['label_key' => 'project_link_github', 'url' => 'https://github.com/opaozinh0/medie'],
+            ],
+        ],
         [
             'key' => 'attrion',
             'name' => 'Attrion',

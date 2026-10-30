@@ -86,7 +86,7 @@
             <div style="text-align: right;">
                 <div class="ph-label" style="margin-bottom: .5rem; color: var(--muted);">{{ __('portfolio.now_last_update_label') }}</div>
                 <span class="mono" style="font-size: 13px; color: var(--muted); font-family: 'JetBrains Mono', monospace;">
-                    {{ \Carbon\Carbon::create(2026, 4, 30)->locale(app()->getLocale())->isoFormat('MMMM YYYY') }}
+                    {{ \Carbon\Carbon::now()->locale(app()->getLocale())->isoFormat('MMMM YYYY') }}
                 </span>
             </div>
         </div>

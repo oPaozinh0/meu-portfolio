@@ -17,10 +17,19 @@ class SkillsSection extends Component
     {
         $this->skillCategories = [
             'Languages' => [
+                ['name' => 'PL/SQL & SQL', 'icon' => 'devicon-oracle-original'],
                 ['name' => 'PHP', 'icon' => 'devicon-php-plain'],
                 ['name' => 'Python', 'icon' => 'devicon-python-plain'],
                 ['name' => 'TypeScript', 'icon' => 'devicon-typescript-plain'],
                 ['name' => 'JavaScript', 'icon' => 'devicon-javascript-plain'],
+            ],
+            'Databases' => [
+                ['name' => 'Oracle (PL/SQL)', 'icon' => 'devicon-oracle-original'],
+                ['name' => 'PostgreSQL (PSql)', 'icon' => 'devicon-postgresql-plain'],
+                ['name' => 'PostGIS / Geoespacial', 'icon' => 'icons.skills.geo'],
+                ['name' => 'MySQL', 'icon' => 'devicon-mysql-plain-wordmark'],
+                ['name' => 'Redis', 'icon' => 'devicon-redis-plain'],
+                ['name' => 'MongoDB', 'icon' => 'devicon-mongodb-plain'],
             ],
             'Backend & APIs' => [
                 ['name' => 'Laravel', 'icon' => 'devicon-laravel-plain'],
@@ -30,16 +39,10 @@ class SkillsSection extends Component
                 ['name' => 'Swagger / OpenAPI', 'icon' => 'devicon-swagger-plain'],
             ],
             'Frontend' => [
+                ['name' => 'Next.js & React', 'icon' => 'devicon-nextjs-plain'],
                 ['name' => 'Vue.js', 'icon' => 'devicon-vuejs-plain'],
                 ['name' => 'Tailwind CSS', 'icon' => 'devicon-tailwindcss-plain'],
-                ['name' => 'Bootstrap', 'icon' => 'devicon-bootstrap-plain'],
-            ],
-            'Databases' => [
-                ['name' => 'MySQL', 'icon' => 'devicon-mysql-plain-wordmark'],
-                ['name' => 'PostgreSQL', 'icon' => 'devicon-postgresql-plain'],
-                ['name' => 'Redis', 'icon' => 'devicon-redis-plain'],
-                ['name' => 'MariaDB', 'icon' => 'devicon-mariadb-plain'],
-                ['name' => 'MongoDB', 'icon' => 'devicon-mongodb-plain'],
+                ['name' => 'Alpine.js', 'icon' => 'icons.skills.concept'],
             ],
             'DevOps & Tools' => [
                 ['name' => 'Git', 'icon' => 'devicon-git-plain'],
@@ -52,12 +55,13 @@ class SkillsSection extends Component
                 ['name' => 'Datadog', 'icon' => 'icons.skills.datadog'],
             ],
             'Concepts' => [
-                ['name' => 'TDD', 'icon' => 'icons.skills.concept'],
-                ['name' => 'SOLID', 'icon' => 'icons.skills.concept'],
-                ['name' => 'Clean Architecture', 'icon' => 'icons.skills.concept'],
-                ['name' => 'ETLs', 'icon' => 'icons.skills.etl'],
+                ['name' => 'Procedures ELT / ETL', 'icon' => 'icons.skills.etl'],
+                ['name' => 'Bancos Geoespaciais', 'icon' => 'icons.skills.geo'],
                 ['name' => 'Data Quality', 'icon' => 'icons.skills.data-quality'],
                 ['name' => 'Data Migration', 'icon' => 'icons.skills.data-migration'],
+                ['name' => 'Clean Architecture', 'icon' => 'icons.skills.concept'],
+                ['name' => 'SOLID', 'icon' => 'icons.skills.concept'],
+                ['name' => 'TDD', 'icon' => 'icons.skills.concept'],
                 ['name' => 'Agile (Scrum/Kanban)', 'icon' => 'icons.skills.agile'],
             ],
         ];

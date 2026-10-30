@@ -1,9 +1,19 @@
 {{-- Hero — landing pessoal estilo Attrion --}}
 <section id="hero" class="hero-screen">
+    <div class="hero-grid-pattern" aria-hidden="true"></div>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
     <div class="hero-content">
+        <div class="hero-status-wrap">
+            <span class="hero-status-pill">
+                <span class="status-ping"></span>
+                <span class="status-dot"></span>
+                <span>{{ __('portfolio.hero_status') }}</span>
+            </span>
+        </div>
+
         <div class="ph-label c" style="justify-content: center; margin-bottom: 1.25rem;">
             {{ __('portfolio.hero_role') }}
         </div>
@@ -13,13 +23,14 @@
         <p class="hero-tagline">{{ $title }}</p>
 
         <div class="hero-stack" aria-label="Stack principal">
-            <span class="hero-stack-item">Laravel</span>
-            <span class="hero-stack-item">PHP</span>
-            <span class="hero-stack-item">Vue.js</span>
-            <span class="hero-stack-item">Python</span>
-            <span class="hero-stack-item">TypeScript</span>
-            <span class="hero-stack-item">PostgreSQL</span>
-            <span class="hero-stack-item">Redis</span>
+            <span class="hero-stack-item stack-oracle">Oracle PL/SQL</span>
+            <span class="hero-stack-item stack-postgres">PostgreSQL</span>
+            <span class="hero-stack-item stack-laravel">Laravel 12</span>
+            <span class="hero-stack-item stack-nextjs">Next.js / React</span>
+            <span class="hero-stack-item stack-python">Python</span>
+            <span class="hero-stack-item stack-typescript">TypeScript</span>
+            <span class="hero-stack-item stack-vue">Vue.js</span>
+            <span class="hero-stack-item stack-redis">Redis</span>
         </div>
 
         <div class="hero-ctas">

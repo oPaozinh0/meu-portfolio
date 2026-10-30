@@ -17,12 +17,18 @@
                         default => 'mu',
                     };
                 @endphp
-                <article class="project-card">
+                <article class="project-card reveal-delay-{{ $loop->iteration }}" style="--project-accent: {{ $project['accent'] }};">
+                    <div class="project-card-glow" aria-hidden="true"></div>
                     <div class="project-card-accent" style="background: {{ $project['accent'] }};"></div>
 
                     <div class="project-header">
-                        <h3 class="project-name">{{ $project['name'] }}</h3>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">{{ $project['name'] }}</h3>
+                        </div>
                         <span class="badge {{ $statusBadge }}">
+                            @if ($project['status'] === 'production')
+                                <span class="badge-pulse-dot"></span>
+                            @endif
                             {{ __('portfolio.' . $statusKey) }}
                         </span>
                     </div>
@@ -47,8 +53,8 @@
                             <a href="{{ $href }}"
                                class="project-link {{ $primary ? 'primary' : '' }}"
                                @if ($external) target="_blank" rel="noopener noreferrer" @endif>
-                                {{ __('portfolio.' . $link['label_key']) }}
-                                @if ($external) <span style="font-size: 9px; opacity: .7;">↗</span> @endif
+                                <span>{{ __('portfolio.' . $link['label_key']) }}</span>
+                                @if ($external) <span class="project-link-arrow">↗</span> @endif
                             </a>
                         @endforeach
                     </div>

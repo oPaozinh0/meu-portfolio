@@ -1,6 +1,6 @@
 # Digital CV & Portfolio — Davi Oliveira
 
-Personal portfolio and digital CV of **Davi Oliveira** — Senior Full Stack Developer & CTO/Co-founder at Attrion. Built as a server-rendered **Laravel 12** application with a custom design system ("Attrion"), full PT-BR/EN internationalization, multiple color themes, and a couple of embedded side utilities.
+Personal portfolio and digital CV of **Davi Oliveira** — Junior Database Analyst at Solinftec, co-founder of Attrion, creator of Mediê, and Senior Full Stack Developer. Built as a server-rendered **Laravel 12** application with a custom design system ("Attrion"), full PT-BR/EN internationalization, multiple color themes, and embedded side utilities.
 
 🔗 Live: [attrion.com.br](https://attrion.com.br) · 💼 [LinkedIn](https://www.linkedin.com/in/davio-vieira) · 🐙 [GitHub](https://github.com/oPaozinh0)
 

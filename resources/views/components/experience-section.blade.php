@@ -8,15 +8,19 @@
 
         <div class="timeline">
             @foreach ($experiences as $exp)
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
+                @php $isCurrent = !empty($exp['current']); @endphp
+                <div class="timeline-item {{ $isCurrent ? 'timeline-item-current' : '' }} reveal-delay-{{ min($loop->iteration, 4) }}">
+                    <div class="timeline-dot {{ $isCurrent ? 'timeline-dot-current' : '' }}"></div>
+                    <div class="timeline-card {{ $isCurrent ? 'timeline-card-current' : '' }}">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px;">
                             <div class="timeline-role">
                                 {{ __('portfolio.experience.' . $exp['role']) }}
                             </div>
-                            @if (!empty($exp['current']))
-                                <span class="badge g">{{ __('portfolio.experience_current_badge') }}</span>
+                            @if ($isCurrent)
+                                <span class="badge g badge-current-pulse">
+                                    <span class="badge-pulse-dot"></span>
+                                    {{ __('portfolio.experience_current_badge') }}
+                                </span>
                             @endif
                         </div>
 
@@ -25,9 +29,9 @@
                                 <a href="{{ $exp['website'] }}"
                                    target="_blank"
                                    rel="noopener noreferrer"
-                                   style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                                    {{ $exp['company'] }}
-                                    <span style="font-size: 9px; opacity: .6;">↗</span>
+                                   class="timeline-company-link">
+                                    <span>{{ $exp['company'] }}</span>
+                                    <span class="company-link-arrow">↗</span>
                                 </a>
                             @else
                                 {{ $exp['company'] }}

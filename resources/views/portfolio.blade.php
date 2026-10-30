@@ -66,20 +66,21 @@
                 "alternateName": "Davi Vieira",
                 "url": @json(url('/')),
                 "image": @json(asset('og-image.png')),
-                "jobTitle": "CTO & Co-founder",
+                "jobTitle": "Analista de Banco de Dados Jr & Senior Full Stack Developer",
                 "worksFor": {
                     "@type": "Organization",
-                    "name": "Attrion",
-                    "url": "https://attrion.com.br",
-                    "description": "Multi-tenant SaaS platform for managing TikTok Ads at scale."
+                    "name": "Solinftec",
+                    "url": "https://www.solinftec.com",
+                    "description": "Global AgTech leader developing AI, robotics, and SaaS solutions for agriculture."
                 },
                 "description": @json(__('portfolio.meta_description')),
                 "knowsAbout": [
-                    "Laravel", "PHP", "TypeScript", "JavaScript", "Vue.js", "Tailwind CSS",
-                    "PostgreSQL", "MySQL", "MongoDB", "Redis",
+                    "Oracle PL/SQL", "PostgreSQL", "PostGIS", "Geospatial Databases", "ELT / ETL Procedures",
+                    "Laravel", "PHP", "TypeScript", "JavaScript", "React", "Next.js", "Vue.js", "Tailwind CSS",
+                    "MySQL", "Redis", "MongoDB",
                     "Docker", "Kubernetes", "Git",
-                    "TikTok Marketing API", "SaaS Architecture", "Multi-tenant Systems",
-                    "ETL", "Data Migration", "Data Quality", "Agile Methodology"
+                    "SaaS Architecture", "Multi-tenant Systems",
+                    "Data Migration", "Data Quality", "Agile Methodology"
                 ],
                 "knowsLanguage": [
                     { "@type": "Language", "name": "Portuguese", "alternateName": "pt-BR" },
